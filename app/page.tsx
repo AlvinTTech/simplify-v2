@@ -7,8 +7,10 @@ import Solutions from "@/components/home/Solutions";
 import AiWorkforce from "@/components/home/AiWorkforce";
 import Process from "@/components/home/Process";
 import Industries from "@/components/home/Industries";
+import TrustedIntegrations from "@/components/home/TrustedIntegrations";
 import OutcomeStories from "@/components/home/OutcomeStories";
 import CTA from "@/components/home/CTA";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <Solutions />
+        <TrustedIntegrations/>
         <AiWorkforce />
         <Process />
         <Industries />

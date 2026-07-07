@@ -29,34 +29,40 @@ const steps = [
 
 export default function Process() {
   return (
-    <Section id="process" className="bg-white">
+    <Section id="process" className="bg-slate-950 text-white">
       <SectionHeader
         eyebrow="How it works"
         title="From messy workflows to intelligent systems."
-        description="We do not start with tools. We start with how your business works, then design the simplest AI system that improves it."
+        description="We start by understanding how your business works, then design the simplest AI system that improves it."
+        theme="dark"
       />
 
-      <div className="mt-14 grid gap-5 lg:grid-cols-4">
-        {steps.map((step, index) => (
-          <motion.div
-            key={step.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: index * 0.07 }}
-            className="rounded-[2rem] border border-slate-200 bg-slate-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl hover:shadow-violet-600/10"
-          >
-            <span className="text-sm font-extrabold text-violet-700">
-              {step.number}
-            </span>
+      <div className="relative mt-16">
+        <div className="absolute left-6 top-0 hidden h-full w-px bg-white/10 lg:block" />
 
-            <h3 className="mt-5 text-2xl font-extrabold text-slate-950">
-              {step.title}
-            </h3>
+        <div className="space-y-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: index * 0.08 }}
+              className="relative grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.08] lg:grid-cols-[80px_1fr]"
+            >
+              <div className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-violet-500 text-sm font-extrabold text-white shadow-lg shadow-violet-500/20">
+                {step.number}
+              </div>
 
-            <p className="mt-3 leading-7 text-slate-600">{step.text}</p>
-          </motion.div>
-        ))}
+              <div>
+                <h3 className="text-2xl font-extrabold">{step.title}</h3>
+                <p className="mt-3 max-w-3xl leading-7 text-slate-300">
+                  {step.text}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );

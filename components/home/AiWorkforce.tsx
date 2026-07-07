@@ -2,27 +2,22 @@
 
 import { motion } from "framer-motion";
 import { agents } from "@/lib/homepage-data";
+import Section from "@/components/shared/Section";
+import SectionHeader from "@/components/shared/SectionHeader";
 
 export default function AiWorkforce() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 px-5 py-24 text-white lg:px-8">
+    <Section className="relative overflow-hidden bg-slate-950 text-white">
       <div className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-extrabold uppercase tracking-[0.25em] text-violet-300">
-            Meet your AI workforce
-          </p>
-
-          <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] md:text-6xl">
-            Agents that execute work across your business.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            These are not generic chatbots. They are task-focused AI agents
-            connected to your tools, workflows and business goals.
-          </p>
-        </div>
+      <div className="relative">
+        <SectionHeader
+          eyebrow="Meet your AI workforce"
+          title="Agents that execute work across your business."
+          description="These are not generic chatbots. They are task-focused AI agents connected to your tools, workflows and business goals."
+          align="center"
+          theme="dark"
+        />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {agents.map((agent, index) => {
@@ -45,14 +40,12 @@ export default function AiWorkforce() {
                   {agent.title}
                 </h3>
 
-                <p className="mt-3 leading-7 text-slate-300">
-                  {agent.text}
-                </p>
+                <p className="mt-3 leading-7 text-slate-300">{agent.text}</p>
               </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

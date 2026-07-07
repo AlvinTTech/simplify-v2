@@ -1,40 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Bot,
-  BrainCircuit,
-  Network,
-  Workflow,
-} from "lucide-react";
-
-const solutions = [
-  {
-    icon: Workflow,
-    title: "Workflow Automation",
-    outcome: "No more repetitive busywork.",
-    text: "We automate follow-ups, reporting, reminders, task updates, data entry and internal approvals so your team can focus on high-value work.",
-  },
-  {
-    icon: Bot,
-    title: "Custom AI Agents",
-    outcome: "AI that actually completes tasks.",
-    text: "We help you create AI agents that use integrations to read, decide, trigger actions and update your tools automatically.",
-  },
-  {
-    icon: Network,
-    title: "System Integration",
-    outcome: "Every tool finally works together.",
-    text: "We connect CRMs, websites, forms, inboxes, calendars, spreadsheets and dashboards into one smooth operating system.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "AI Strategy & Onboarding",
-    outcome: "Know exactly where AI fits.",
-    text: "We map your operations, identify automation opportunities, build a clear roadmap and guide your team through adoption.",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { solutions } from "@/lib/homepage-data";
 
 export default function Solutions() {
   return (

@@ -1,47 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Building2,
-  GraduationCap,
-  HeartPulse,
-  Landmark,
-  ShoppingBag,
-  Truck,
-} from "lucide-react";
-
-const industries = [
-  {
-    icon: Truck,
-    title: "Logistics",
-    text: "Automate delivery updates, customer communication, dispatch tracking and operational reporting.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education",
-    text: "Simplify admissions, parent communication, student records, reminders and administrative workflows.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Retail & E-commerce",
-    text: "Automate order updates, inventory alerts, customer support, follow-ups and sales reporting.",
-  },
-  {
-    icon: Building2,
-    title: "Professional Services",
-    text: "Streamline client onboarding, proposals, scheduling, document creation and internal task tracking.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Healthcare",
-    text: "Improve appointment reminders, patient follow-ups, internal coordination and reporting workflows.",
-  },
-  {
-    icon: Landmark,
-    title: "NGOs & Organizations",
-    text: "Automate donor updates, impact reporting, grant tracking, program records and stakeholder communication.",
-  },
-];
+import { industries } from "@/lib/homepage-data";
 
 export default function Industries() {
   return (

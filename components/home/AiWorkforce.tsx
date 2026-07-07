@@ -1,47 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BarChart3,
-  CalendarCheck,
-  Headphones,
-  MailCheck,
-  ReceiptText,
-  UsersRound,
-} from "lucide-react";
-
-const agents = [
-  {
-    icon: UsersRound,
-    title: "Sales Agent",
-    text: "Qualifies leads, updates your CRM, follows up automatically and keeps opportunities moving.",
-  },
-  {
-    icon: Headphones,
-    title: "Customer Support Agent",
-    text: "Answers common questions, routes complex issues and gives customers faster responses.",
-  },
-  {
-    icon: ReceiptText,
-    title: "Finance Agent",
-    text: "Generates invoices, sends reminders, tracks payments and prepares financial summaries.",
-  },
-  {
-    icon: MailCheck,
-    title: "Marketing Agent",
-    text: "Drafts campaign content, schedules updates and tracks performance across channels.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Operations Agent",
-    text: "Coordinates tasks, updates teams, manages reminders and keeps daily workflows running.",
-  },
-  {
-    icon: BarChart3,
-    title: "Reporting Agent",
-    text: "Pulls data from your tools and turns it into clear reports for faster decision-making.",
-  },
-];
+import { agents } from "@/lib/homepage-data";
 
 export default function AiWorkforce() {
   return (

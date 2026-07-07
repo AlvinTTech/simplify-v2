@@ -1,47 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  AlertCircle,
-  Clock,
-  DatabaseZap,
-  FileText,
-  MessageSquareWarning,
-  Repeat,
-} from "lucide-react";
-
-const problems = [
-  {
-    icon: MessageSquareWarning,
-    title: "Leads fall through",
-    text: "Enquiries come in from WhatsApp, forms, email and social media — but follow-up depends on someone remembering.",
-  },
-  {
-    icon: Repeat,
-    title: "Teams repeat work",
-    text: "Your staff spend hours copying data, sending updates, preparing reports and chasing tasks manually.",
-  },
-  {
-    icon: DatabaseZap,
-    title: "Tools do not talk",
-    text: "Your CRM, inbox, calendar, website and spreadsheets operate separately, slowing down execution.",
-  },
-  {
-    icon: Clock,
-    title: "Response times are slow",
-    text: "Customers wait too long because simple questions and next steps still need human attention.",
-  },
-  {
-    icon: FileText,
-    title: "Reports take too long",
-    text: "Managers struggle to get accurate, timely information because reporting is still manual.",
-  },
-  {
-    icon: AlertCircle,
-    title: "Growth creates chaos",
-    text: "As the business grows, the old way of working creates bottlenecks, delays and unnecessary pressure.",
-  },
-];
+import { problems } from "@/lib/homepage-data";
 
 export default function Problem() {
   return (

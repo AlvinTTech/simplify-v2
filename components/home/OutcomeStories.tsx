@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Section from "@/components/shared/Section";
+import SectionHeader from "@/components/shared/SectionHeader";
 
 const stories = [
   {
@@ -33,23 +34,13 @@ const stories = [
 
 export default function OutcomeStories() {
   return (
-    <Section className="bg-white">
+    <Section id="outcomes" className="bg-white">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div>
-          <p className="text-sm font-extrabold uppercase tracking-[0.25em] text-violet-700">
-            Outcomes
-          </p>
-
-          <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] text-slate-950 md:text-6xl">
-            What changes when your systems start working for you.
-          </h2>
-
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            The goal is not to add AI for the sake of it. The goal is to remove
-            delays, reduce manual work and help your business operate with more
-            clarity.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Outcomes"
+          title="What changes when your systems start working for you."
+          description="The goal is not to add AI for the sake of it. The goal is to remove delays, reduce manual work and help your business operate with more clarity."
+        />
 
         <div className="grid gap-5">
           {stories.map((story, index) => (
@@ -78,6 +69,7 @@ export default function OutcomeStories() {
                   <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-slate-400">
                     Before
                   </p>
+
                   <p className="mt-3 leading-7 text-slate-600">
                     {story.before}
                   </p>
@@ -85,11 +77,16 @@ export default function OutcomeStories() {
 
                 <div className="rounded-2xl border border-violet-200 bg-violet-50 p-5">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="text-violet-700" size={18} />
+                    <CheckCircle2
+                      className="text-violet-700"
+                      size={18}
+                    />
+
                     <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-700">
                       After Simplify
                     </p>
                   </div>
+
                   <p className="mt-3 leading-7 text-slate-700">
                     {story.after}
                   </p>

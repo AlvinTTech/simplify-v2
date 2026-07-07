@@ -7,7 +7,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 
 export default function Industries() {
   return (
-    <Section className="bg-slate-50">
+    <Section id="industries" className="bg-slate-50">
       <SectionHeader
         eyebrow="Industries"
         title="Built around how your business actually works."
@@ -36,7 +36,9 @@ export default function Industries() {
                 {industry.title}
               </h3>
 
-              <p className="mt-3 leading-7 text-slate-600">{industry.text}</p>
+              <p className="mt-3 leading-7 text-slate-600">
+                {industry.text}
+              </p>
             </motion.div>
           );
         })}

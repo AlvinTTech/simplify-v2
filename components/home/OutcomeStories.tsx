@@ -2,48 +2,26 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { roles } from "@/data/roles";
+import { useRole } from "@/components/providers/RoleContext";
 import Section from "@/components/shared/Section";
 import SectionHeader from "@/components/shared/SectionHeader";
 
-const stories = [
-  {
-    label: "Sales",
-    title: "No more forgotten leads.",
-    before:
-      "Leads came in through WhatsApp, calls and website forms, but follow-up depended on manual tracking.",
-    after:
-      "AI qualifies leads, updates the CRM, sends follow-ups and books meetings automatically.",
-  },
-  {
-    label: "Operations",
-    title: "Less coordination. More execution.",
-    before:
-      "Managers spent hours checking updates, reminding teams and chasing task completion.",
-    after:
-      "Automated workflows send reminders, update task boards and notify the right people at the right time.",
-  },
-  {
-    label: "Reporting",
-    title: "Decisions without waiting for reports.",
-    before:
-      "Reports were prepared manually across spreadsheets, emails and different business tools.",
-    after:
-      "AI pulls data from connected systems and creates clear summaries for faster decision-making.",
-  },
-];
-
 export default function OutcomeStories() {
+  const { role } = useRole();
+  const selectedRole = roles.find((item) => item.id === role) ?? roles[0];
+
   return (
     <Section id="outcomes" className="bg-white">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <SectionHeader
           eyebrow="Outcomes"
-          title="What changes when your systems start working for you."
+          title={`What changes for ${selectedRole.label.toLowerCase()} teams.`}
           description="The goal is not to add AI for the sake of it. The goal is to remove delays, reduce manual work and help your business operate with more clarity."
         />
 
         <div className="grid gap-5">
-          {stories.map((story, index) => (
+          {selectedRole.outcomes.map((story, index) => (
             <motion.div
               key={story.title}
               initial={{ opacity: 0, y: 24 }}
@@ -77,10 +55,7 @@ export default function OutcomeStories() {
 
                 <div className="rounded-2xl border border-violet-200 bg-violet-50 p-5">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2
-                      className="text-violet-700"
-                      size={18}
-                    />
+                    <CheckCircle2 className="text-violet-700" size={18} />
 
                     <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-violet-700">
                       After Simplify

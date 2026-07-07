@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { solutions } from "@/lib/homepage-data";
+import { roles } from "@/data/roles";
+import { useRole } from "@/components/providers/RoleContext";
 import Section from "@/components/shared/Section";
 import Card from "@/components/shared/Card";
 
 export default function Solutions() {
+  const { role } = useRole();
+  const selectedRole = roles.find((item) => item.id === role) ?? roles[0];
+
   return (
     <Section id="solutions" className="bg-white">
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -16,13 +21,11 @@ export default function Solutions() {
           </p>
 
           <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] text-slate-950 md:text-6xl">
-            Systems that remove work, not just software that adds more.
+            Systems built around {selectedRole.label.toLowerCase()} workflows.
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Simplify builds practical AI systems around your real business
-            operations. The goal is not to add another tool. The goal is to make
-            the tools you already use work harder for you.
+            {selectedRole.solutionFocus}
           </p>
 
           <a

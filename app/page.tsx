@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
+import RoleIntro from "@/components/home/RoleIntro";
 import Problem from "@/components/home/Problem";
 import Solutions from "@/components/home/Solutions";
 import AiWorkforce from "@/components/home/AiWorkforce";
@@ -12,7 +13,9 @@ import CTA from "@/components/home/CTA";
 export default function Home() {
   return (
     <>
+      <RoleIntro />
       <Navbar />
+
       <main>
         <Hero />
         <Problem />
@@ -23,6 +26,7 @@ export default function Home() {
         <OutcomeStories />
         <CTA />
       </main>
+
       <Footer />
     </>
   );

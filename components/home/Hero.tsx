@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { roles } from "@/data/roles";
+import { useRole } from "@/components/providers/RoleContext";
 import WorkflowVisual from "./WorkflowVisual";
+import RoleSelector from "./RoleSelector";
 
 const proofPoints = [
   "24/7 execution",
@@ -13,6 +16,9 @@ const proofPoints = [
 ];
 
 export default function Hero() {
+  const { role } = useRole();
+  const selectedRole = roles.find((item) => item.id === role) ?? roles[0];
+
   return (
     <section className="relative overflow-hidden bg-white px-5 pb-24 pt-36 lg:px-8 lg:pb-32 lg:pt-44">
       <div className="absolute left-1/2 top-0 h-[650px] w-[950px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-3xl" />
@@ -28,24 +34,26 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1
+            key={selectedRole.headline}
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
+            transition={{ duration: 0.35 }}
             className="max-w-5xl text-5xl font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950 md:text-7xl"
           >
-            Build a business that runs beyond working hours.
+            {selectedRole.headline}
           </motion.h1>
 
           <motion.p
+            key={selectedRole.description}
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
             className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl"
           >
-            We build intelligent systems that answer customers, update your CRM,
-            create proposals, schedule meetings, follow up with leads and
-            connect every part of your business.
+            {selectedRole.description}
           </motion.p>
+
+          <RoleSelector />
 
           <motion.div
             initial={{ opacity: 0, y: 22 }}

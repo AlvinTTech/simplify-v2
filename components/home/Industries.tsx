@@ -2,16 +2,21 @@
 
 import { motion } from "framer-motion";
 import { industries } from "@/lib/homepage-data";
+import { roles } from "@/data/roles";
+import { useRole } from "@/components/providers/RoleContext";
 import Section from "@/components/shared/Section";
 import SectionHeader from "@/components/shared/SectionHeader";
 import Card from "@/components/shared/Card";
 
 export default function Industries() {
+  const { role } = useRole();
+  const selectedRole = roles.find((item) => item.id === role) ?? roles[0];
+
   return (
     <Section id="industries" className="bg-slate-50">
       <SectionHeader
         eyebrow="Industries"
-        title="Built around how your business actually works."
+        title={`AI systems shaped around ${selectedRole.label.toLowerCase()} work.`}
         description="Every business has different workflows. We design AI systems around your operations, not generic templates."
         align="center"
       />

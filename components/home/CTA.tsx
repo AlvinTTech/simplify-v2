@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { roles } from "@/data/roles";
+import { useRole } from "@/components/providers/RoleContext";
 
 const points = [
   "Identify where time is being wasted",
@@ -11,6 +13,9 @@ const points = [
 ];
 
 export default function CTA() {
+  const { role } = useRole();
+  const selectedRole = roles.find((item) => item.id === role) ?? roles[0];
+
   return (
     <section id="contact" className="bg-white px-5 py-24 lg:px-8">
       <motion.div
@@ -26,13 +31,13 @@ export default function CTA() {
             </p>
 
             <h2 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-[-0.04em] md:text-6xl">
-              Ready to see what AI can remove from your workload?
+              Ready to build your {selectedRole.label.toLowerCase()} AI roadmap?
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              In a strategy session, we look at your workflows, identify where
-              your team is losing time and map the first intelligent system your
-              business should build.
+              We&apos;ll look at your current workflows, identify where time is
+              being lost, and map the first intelligent system your business
+              should build.
             </p>
 
             <a
@@ -40,7 +45,10 @@ export default function CTA() {
               className="group mt-9 inline-flex items-center justify-center rounded-full bg-white px-7 py-4 font-extrabold text-slate-950 transition hover:bg-violet-600 hover:text-white"
             >
               Call +254 754 561 299
-              <ArrowRight className="ml-2 transition group-hover:translate-x-1" size={18} />
+              <ArrowRight
+                className="ml-2 transition group-hover:translate-x-1"
+                size={18}
+              />
             </a>
           </div>
 
@@ -52,7 +60,10 @@ export default function CTA() {
             <div className="mt-6 space-y-4">
               {points.map((point) => (
                 <div key={point} className="flex gap-3">
-                  <CheckCircle2 className="mt-1 shrink-0 text-violet-300" size={20} />
+                  <CheckCircle2
+                    className="mt-1 shrink-0 text-violet-300"
+                    size={20}
+                  />
                   <p className="leading-7 text-slate-200">{point}</p>
                 </div>
               ))}

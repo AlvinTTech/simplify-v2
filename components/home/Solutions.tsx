@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { solutions } from "@/lib/homepage-data";
 import Section from "@/components/shared/Section";
+import Card from "@/components/shared/Card";
 
 export default function Solutions() {
   return (
@@ -47,23 +48,24 @@ export default function Solutions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: index * 0.08 }}
-                className="group rounded-[2rem] border border-slate-200 bg-slate-50 p-7 transition duration-300 hover:-translate-y-1 hover:border-violet-200 hover:bg-white hover:shadow-xl hover:shadow-violet-600/10"
               >
-                <div className="grid h-13 w-13 place-items-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-600/20">
-                  <Icon size={23} />
-                </div>
+                <Card className="group h-full bg-slate-50 hover:border-violet-200 hover:bg-white">
+                  <div className="grid h-13 w-13 place-items-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-600/20">
+                    <Icon size={23} />
+                  </div>
 
-                <p className="mt-7 text-sm font-extrabold uppercase tracking-[0.18em] text-violet-700">
-                  {solution.outcome}
-                </p>
+                  <p className="mt-7 text-sm font-extrabold uppercase tracking-[0.18em] text-violet-700">
+                    {solution.outcome}
+                  </p>
 
-                <h3 className="mt-3 text-2xl font-extrabold text-slate-950">
-                  {solution.title}
-                </h3>
+                  <h3 className="mt-3 text-2xl font-extrabold text-slate-950">
+                    {solution.title}
+                  </h3>
 
-                <p className="mt-4 leading-7 text-slate-600">
-                  {solution.text}
-                </p>
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {solution.text}
+                  </p>
+                </Card>
               </motion.div>
             );
           })}

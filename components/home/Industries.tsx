@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { industries } from "@/lib/homepage-data";
 import Section from "@/components/shared/Section";
 import SectionHeader from "@/components/shared/SectionHeader";
+import Card from "@/components/shared/Card";
 
 export default function Industries() {
   return (
@@ -26,19 +27,20 @@ export default function Industries() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: index * 0.07 }}
-              className="group rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-600/10"
             >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-violet-100 text-violet-700 transition group-hover:bg-violet-600 group-hover:text-white">
-                <Icon size={22} />
-              </div>
+              <Card className="group h-full">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-violet-100 text-violet-700 transition group-hover:bg-violet-600 group-hover:text-white">
+                  <Icon size={22} />
+                </div>
 
-              <h3 className="mt-6 text-2xl font-extrabold text-slate-950">
-                {industry.title}
-              </h3>
+                <h3 className="mt-6 text-2xl font-extrabold text-slate-950">
+                  {industry.title}
+                </h3>
 
-              <p className="mt-3 leading-7 text-slate-600">
-                {industry.text}
-              </p>
+                <p className="mt-3 leading-7 text-slate-600">
+                  {industry.text}
+                </p>
+              </Card>
             </motion.div>
           );
         })}

@@ -1,19 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Process", href: "#process" },
-  { label: "Industries", href: "#industries" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Contact", href: "#contact" },
+  { label: "Solutions", href: "#solutions", id: "solutions" },
+  { label: "Process", href: "#process", id: "process" },
+  { label: "Industries", href: "#industries", id: "industries" },
+  { label: "Outcomes", href: "#outcomes", id: "outcomes" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+
+        if (visible) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0,
+      }
+    );
+
+    links.forEach((link) => {
+      const section = document.getElementById(link.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-5 pt-5">
@@ -33,16 +57,24 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm font-bold text-slate-600 transition hover:text-violet-600"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-2 lg:flex">
+          {links.map((link) => {
+            const isActive = activeSection === link.id;
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`rounded-full px-4 py-2 text-sm font-bold transition ${
+                  isActive
+                    ? "bg-violet-100 text-violet-700"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-violet-600"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <a
@@ -64,16 +96,24 @@ export default function Navbar() {
       {open && (
         <div className="mx-auto mt-3 max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl lg:hidden">
           <nav className="flex flex-col gap-2">
-            {links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-violet-50 hover:text-violet-600"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive = activeSection === link.id;
+
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-2xl px-4 py-3 text-sm font-bold transition ${
+                    isActive
+                      ? "bg-violet-100 text-violet-700"
+                      : "text-slate-700 hover:bg-violet-50 hover:text-violet-600"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
             <a
               href="tel:+254754561299"

@@ -6,6 +6,7 @@ import Problem from "@/components/home/Problem";
 import Solutions from "@/components/home/Solutions";
 import AiWorkforce from "@/components/home/AiWorkforce";
 import Process from "@/components/home/Process";
+import Metrics from "@/components/home/Metrics";
 import Industries from "@/components/home/Industries";
 import TrustedIntegrations from "@/components/home/TrustedIntegrations";
 import OutcomeStories from "@/components/home/OutcomeStories";
@@ -27,6 +28,7 @@ export default function Home() {
         <Process />
         <Industries />
         <OutcomeStories />
+        <Metrics />
         <CTA />
       </main>
 

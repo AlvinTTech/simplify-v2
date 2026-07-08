@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { problems } from "@/lib/homepage-data";
+import { problems } from "@/lib/config/homepage-data";
 import { roles } from "@/data/roles";
 import { useRole } from "@/components/providers/RoleContext";
 import Section from "@/components/shared/Section";

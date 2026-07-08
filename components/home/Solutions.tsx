@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { solutions } from "@/lib/homepage-data";
+import { solutions } from "@/lib/config/homepage-data";
 import { roles } from "@/data/roles";
 import { useRole } from "@/components/providers/RoleContext";
 import Section from "@/components/shared/Section";

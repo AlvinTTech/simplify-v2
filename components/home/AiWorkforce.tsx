@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { agents } from "@/lib/homepage-data";
+import { agents } from "@/lib/config/homepage-data";
 import Section from "@/components/shared/Section";
 import SectionHeader from "@/components/shared/SectionHeader";
 
